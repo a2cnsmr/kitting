@@ -7,7 +7,7 @@ AppleSillicon MacのDocker環境をUTMで構築する事を目標とします。
 - [Ubuntu](./docker/UBUNTU.md)
 
 # etcetra
-- [フォント](etcetra/font.md)
+- [フォント](etcetra/FONT.md)
 
 # zsh
-- [コンソール](zsh/console.md)
+- [コンソール](zsh/CONSOLE.md)
