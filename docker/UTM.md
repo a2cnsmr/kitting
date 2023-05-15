@@ -152,4 +152,4 @@ Dockerはコンソールで操作する予定なので、SSHコンソールが�
 再起動後、ログインプロンプトが表示されるので、4-4. で設定したユーザー名とパスワードを入力してログインする。
 ![034.png](img/build-docker-env-utm/034.png) 
 
-つづきは、[こちら](./BUILD-DOCKER-ON-UBUNTU.md)でUbuntuの設定を行っていく。
+つづきは、[こちら](./UBUNTU.md)でUbuntuの設定を行っていく。
