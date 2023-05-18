@@ -1,5 +1,7 @@
-UbuntuでDockerを動かす
+Ubuntuのセットアップ
 ===
+
+このセクションでは、Ubuntuをセットアップしていく。  
 
 # 1. OSアップデート
 最小構成でインストールしているため、vi(vim)すら入っていない。  
@@ -103,56 +105,25 @@ Host utm-ubuntu2204-arm
 sudo vi /etc/ssh/sshd_config
 ```
 
+## 2-6. 注意
 
-# 3. Docker インストール
-
-## 3-1. 事前準備
-
-```
-sudo apt install ca-certificates curl gnupg lsb-release
-```
-
-## 3-2. Dockerリポジトリの登録
+ssh ログインすると、ログイン画面に↓のような表示がある。
 
 ```
-$ sudo mkdir -p /etc/apt/keyrings
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-$ sudo chmod a+r /etc/apt/keyrings/docker.gpg
-$ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-$ sudo apt update
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-72-generic aarch64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Thu May 18 12:13:13 2023
 ```
 
-解説  
-1行目：curl コマンドで Docker の Ubuntu用GPG鍵をダウンロード。  
-2行目：標準のOpenGPGエンコーディングに変換し、aptのキーリングディレクトリへ保存。  
-3行目：パーミッション変更。  
-4行目：Docker アーカイブをダウンロード。  
-5行目：aptパッケージ一覧情報の更新。  
-
-## 3-3. インストール
-
-```
-sudo apt install docker-ce \
-docker-ce-cli \
-containerd.io \
-docker-compose-plugin
-```
-
-## 3-4. 起動
-
-起動コマンド  
-```
-sudo systemctl start docker
-```
-
-自動起動設定  
-```
-sudo systemctl enable docker
-```
-
-ステータス表示  
-```
-sudo systemctl status docker
-```
+ここに表示されている`unminimize`を実行すると、フルパッケージがインストールされるので、minimal を保ちたい場合は実行しないこと。
 
 
+続いて、[Docker](./DOCKER.md)をセットアップしていく。
