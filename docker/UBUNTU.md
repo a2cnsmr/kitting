@@ -34,7 +34,7 @@ Which services should be restarted?
 /etc/needrestart/conf.d/ に　`50local.conf` というファイルを作成する。
 
 ```
-$ echo "\$nrconf{restart} = 'a';" | sudo tee /etc/needrestart/conf.d/50local.conf
+echo "\$nrconf{restart} = 'a';" | sudo tee /etc/needrestart/conf.d/50local.conf
 ```
 
 参考サイト  
@@ -136,18 +136,17 @@ UTMで設定した共有ディレクトリをUbuntuで有効にするための�
 [公式](https://docs.getutm.app/guest-support/linux/#virtfs)
 
 ```bash
-$ sudo mkdir /develop
+sudo mkdir /develop
 ```
 
-再起動しても有効になるよう、`/etc/fstab`に記述する。
+再起動しても有効になるよう、`/etc/fstab` を編集する。
 
 ```bash
-$ sudo vi /etc/fstab
+sudo vi /etc/fstab
 ```
 
-`mount point`という部分は`/develop`に置き換えること。  
+以下を追記する。
 ```
-#記述内容
 share	/develop	9p	trans=virtio,version=9p2000.L,rw,_netdev,nofail	0	0
 ```
 
