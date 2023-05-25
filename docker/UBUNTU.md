@@ -126,4 +126,30 @@ Last login: Thu May 18 12:13:13 2023
 ここに表示されている`unminimize`を実行すると、フルパッケージがインストールされるので、minimal を保ちたい場合は実行しないこと。
 
 
+# 3. その他の設定
+
+## 3-1. 共有ディレクトリのマウント
+
+UTMで設定した共有ディレクトリをUbuntuで有効にするための設定を行う。  
+ここでは ルート（/）に `develop`というディレクトリを作成し、そこへマウントする。  
+
+[公式](https://docs.getutm.app/guest-support/linux/#virtfs)
+
+```bash
+$ sudo mkdir /develop
+```
+
+再起動しても有効になるよう、`/etc/fstab`に記述する。
+
+```bash
+$ sudo vi /etc/fstab
+```
+
+`mount point`という部分は`/develop`に置き換えること。  
+```
+#記述内容
+share	/develop	9p	trans=virtio,version=9p2000.L,rw,_netdev,nofail	0	0
+```
+
+
 続いて、[Docker](./DOCKER.md)をセットアップしていく。
