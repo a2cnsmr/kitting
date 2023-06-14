@@ -206,9 +206,15 @@ $ ss -tnl | grep 2375
 LISTEN 0      4096               *:2375            *:*
 ```
 
-## 3-3. コンテキスト設定
+## 3-3. コンテキスト設定 (Mac)
 
-VM内のdockerとアクセスする側には`docker-cli`がインストールしているハズである。  
+VM内のdockerとアクセスする側には`docker-cli`のインストールが必要。
+
+```
+$ brew install docker
+```
+※`--cask`オプションを付けてしまうとDocker Desktopがインストールされてしまうので注意。  
+
 `コンテキスト`と呼ばれるものを作成し、VM内のdockerと通信する。
 
 
